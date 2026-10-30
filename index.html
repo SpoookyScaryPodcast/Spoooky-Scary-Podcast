@@ -206,7 +206,70 @@ select{width:100%;font:inherit;color:var(--text);background:#101116;border:1px s
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="manifest" href="manifest.webmanifest">
 
-</head>
+<style>
+/* Horizontal classified-access strip anchored at the very bottom of the site. */
+footer{flex-direction:column;align-items:stretch;gap:18px}
+.keypad-tab{order:-1;position:relative;z-index:4;width:100%;margin:0;padding:12px 18px;border:1px solid #77736b;border-radius:4px;background:linear-gradient(90deg,#454640,#242621);box-shadow:0 5px 10px #0009,inset 0 1px 2px #ffffff25;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px}
+.keypad-tab-label{font:bold 9px monospace;letter-spacing:.18em;color:#c7bda7;text-align:left}
+.cabinet-keypad{position:relative;width:170px;min-height:54px;padding:6px 9px;border:2px solid #aaa697;border-radius:4px;background:linear-gradient(145deg,#55564f,#22241f);color:#e5dfce;box-shadow:inset 0 1px 3px #fff5,0 3px 7px #000b;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;align-items:center;gap:4px 8px;cursor:pointer;font-family:monospace}
+.cabinet-keypad:hover{filter:brightness(1.25);transform:translateY(-1px)}
+.keypad-screen{grid-column:1;grid-row:1;width:100%;padding:4px 2px;background:#172019;border:1px solid #77796c;color:#b9d29a;font-size:9px;letter-spacing:.12em;text-align:center;box-shadow:inset 0 1px 4px #000}
+.keypad-grid{grid-column:2;grid-row:1 / span 2;width:62px;display:grid;grid-template-columns:repeat(2,1fr);gap:3px;justify-self:end}
+.keypad-grid i{height:16px;display:flex;align-items:center;justify-content:center;border:1px solid #aaa697;border-radius:2px;background:linear-gradient(#77766e,#353630);box-shadow:inset 0 1px #fff4,0 1px 2px #0009;color:#eee7d8;font:bold 9px monospace;font-style:normal}
+.secret-doc-card{border:2px solid #8f2424;padding:18px;background:linear-gradient(135deg,#dfc99d,#b99c6d);box-shadow:inset 0 0 0 5px #d1b887;color:#342619;text-align:center}
+.secret-doc-card .secret-stamp{display:inline-block;border:3px double #982326;color:#982326;padding:5px 10px;font:bold 12px monospace;letter-spacing:.18em;transform:rotate(-4deg)}
+.secret-doc-card h3{font: bold 1.8rem Georgia,serif;margin:18px 0 8px}
+.secret-doc-card p{color:#4c3926}
+.secret-image{display:block;width:100%;max-height:65vh;object-fit:contain;margin:16px auto 0;border:5px solid #5b4931;box-shadow:0 6px 18px #0008}
+.secret-image-help{font:11px monospace;color:#59452f;margin-top:10px}
+</style><style>
+/* Give the cabinet's main CLASSIFIED DOCUMENTS lettering more breathing room */
+.cabinet-label{margin-top:clamp(18px,3vw,30px);}
+@media(max-width:600px){.cabinet-label{margin-top:22px;}}
+</style><style>
+/* Rebuild the security control as a genuinely horizontal keypad: four keys in one row. */
+footer .keypad-tab{width:100%;max-width:100%;min-height:82px;margin:0;padding:12px 18px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px;box-sizing:border-box}
+footer .keypad-tab-label{flex:1;font:bold 10px monospace;letter-spacing:.18em;line-height:1.5;text-align:left}
+footer .cabinet-keypad{width:min(390px,58%);min-height:54px;height:auto;padding:7px 10px;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:8px;box-sizing:border-box}
+footer .keypad-screen{width:76px;flex:0 0 76px;padding:7px 4px;box-sizing:border-box}
+footer .keypad-grid{width:auto;flex:1;display:grid;grid-template-columns:repeat(4,minmax(28px,1fr));grid-template-rows:1fr;gap:6px;justify-self:auto}
+footer .keypad-grid i{height:30px;min-width:0;font-size:11px}
+@media(max-width:600px){
+ footer .keypad-tab{min-height:70px;padding:9px 10px;gap:8px}
+ footer .keypad-tab-label{font-size:7px;letter-spacing:.1em}
+ footer .cabinet-keypad{width:62%;min-height:48px;padding:5px;gap:4px}
+ footer .keypad-screen{width:43px;flex-basis:43px;font-size:7px;padding:6px 2px}
+ footer .keypad-grid{gap:3px}
+ footer .keypad-grid i{height:24px;font-size:9px}
+}
+</style><style>
+/* Final alignment cleanup for the horizontal security keypad. */
+footer .keypad-tab{box-sizing:border-box;min-width:0;overflow:hidden;align-items:center}
+footer .keypad-tab-label{display:block;min-width:0;margin:0;padding:0;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
+footer .cabinet-keypad{box-sizing:border-box;min-width:0;min-height:54px;align-items:center;justify-content:center}
+footer .keypad-screen{display:flex;align-items:center;justify-content:center;min-height:30px;line-height:1.2;white-space:nowrap}
+@media(max-width:600px){
+  footer .keypad-tab{width:100%;margin:0;padding:9px 10px;gap:8px}
+  footer .keypad-tab-label{flex:1 1 auto;font-size:7px;letter-spacing:.08em;line-height:1.35}
+  footer .cabinet-keypad{flex:0 1 62%;width:62%;height:auto;min-height:46px;margin:0;padding:5px;gap:4px}
+  footer .keypad-screen{width:43px;flex:0 0 43px;min-height:26px;padding:5px 2px;font-size:7px}
+  footer .keypad-grid{flex:1 1 auto;min-width:0;gap:3px}
+  footer .keypad-grid i{height:23px;font-size:9px}
+}
+</style><style>
+/* Editable horizontal access keypad: blank four-digit field, then unlock. */
+footer{flex-direction:column;align-items:stretch;gap:18px}
+footer .keypad-tab{order:-1;position:relative;z-index:4;width:100%;min-height:82px;margin:0;padding:12px 18px;border:1px solid #77736b;border-radius:4px;background:linear-gradient(90deg,#454640,#242621);box-shadow:0 5px 10px #0009,inset 0 1px 2px #ffffff25;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px;box-sizing:border-box}
+footer .keypad-tab-label{flex:1;min-width:0;font:bold 10px monospace;letter-spacing:.16em;line-height:1.4;color:#c7bda7;text-align:left}
+footer .cabinet-keypad{width:min(390px,62%);min-width:0;min-height:54px;margin:0;padding:7px 9px;border:2px solid #aaa697;border-radius:4px;background:linear-gradient(145deg,#55564f,#22241f);color:#e5dfce;box-shadow:inset 0 1px 3px #fff5,0 3px 7px #000b;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:8px;box-sizing:border-box}
+footer .keypad-screen{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:auto;min-height:30px;margin:0;padding:0 8px;background:transparent;border:0;color:#b9d29a;font:bold 9px monospace;letter-spacing:.1em;white-space:nowrap;box-shadow:none}
+footer .keypad-entry{width:120px;min-width:0;height:36px;padding:5px 9px;border:1px solid #77796c;border-radius:2px;background:#172019;color:#c8e1a6;font:bold 18px monospace;letter-spacing:.32em;text-align:center;box-shadow:inset 0 1px 4px #000;outline:none}
+footer .keypad-entry::placeholder{color:#71816a;opacity:1;letter-spacing:.25em}
+footer .keypad-entry:focus{border-color:#c5d49e;box-shadow:0 0 0 2px #9cae7a33,inset 0 1px 4px #000}
+footer .keypad-unlock{height:36px;padding:0 13px;border:1px solid #aaa697;border-radius:2px;background:linear-gradient(#77766e,#353630);color:#eee7d8;font:bold 9px monospace;letter-spacing:.1em;cursor:pointer}
+footer .keypad-unlock:hover{filter:brightness(1.2)}
+@media(max-width:600px){footer .keypad-tab{min-height:70px;padding:9px 10px;gap:8px}footer .keypad-tab-label{font-size:7px;letter-spacing:.08em}footer .cabinet-keypad{width:67%;padding:5px;gap:4px;min-height:46px}footer .keypad-screen{font-size:7px;padding:0 3px}footer .keypad-entry{width:74px;height:30px;padding:4px;font-size:15px;letter-spacing:.2em}footer .keypad-unlock{height:30px;padding:0 7px;font-size:8px}}
+</style></head>
 <body><div class="noise"></div>
 <header><a class="brand" href="#top">Spoooky <span>Scary</span> Podcast</a><nav><a href="#episodes">Episodes</a><a href="#listen">Listen</a><a href="#stories">Submit a Story</a><a href="#about">About</a></nav></header>
 <main id="top">
@@ -255,7 +318,7 @@ select{width:100%;font:inherit;color:var(--text);background:#101116;border:1px s
 <p class="fineprint">Please don’t include private information you wouldn’t want to share. Don’t include anyone else’s personal details without their consent. You can submit without agreeing to have your story featured.</p>
 </form></div></section>
 <section id="about"><div class="about"><div class="about-mark">Stay<br>Spoooky.</div><div><div class="eyebrow">Behind the microphone</div><h2>Curiosity is not a conspiracy.</h2><p><em>Spoooky Scary Podcast</em> digs into cryptids, UFOs and UAPs, creepypastas, government secrecy, cults, secret societies, and unexplained cases. Ghost stories may make an appearance, but the mission is bigger than things that go bump in the night: we follow the claims, examine the evidence, and explore the history behind the mystery.</p><p>Bring an open mind. Keep your critical thinking switched on. Not every mystery has an answer — and not every claim holds up.</p><div class="actions"><a class="btn ghost" href="#listen">Find your platform</a></div></div></div></section>
-</main><footer><div class="keypad-tab" aria-label="Restricted access keypad"><span class="keypad-tab-label">SPECIAL ACCESS · CLASSIFIED ARCHIVE</span><button class="cabinet-keypad" id="secretKeypad" type="button" aria-label="Enter four digit access code" title="Restricted access"><span class="keypad-screen">ACCESS</span><span class="keypad-grid" aria-hidden="true"><i>1</i><i>2</i><i>3</i><i>4</i></span></button></div><div>© <span id="year"></span> Spoooky Scary Podcast. The case remains open.</div><div class="footer-links"><a href="#about">About</a><a href="#stories">Submit a story</a><a href="https://open.spotify.com/show/0342h0NJKigxhoZ4Esdge4" target="_blank" rel="noopener">Spotify</a><a href="https://podcasts.apple.com/us/podcast/spoooky-scary-podcast/id6827607584" target="_blank" rel="noopener">Apple Podcasts</a><a href="https://youtube.com/@spoookyscarypodcast" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/spoookyscarypodcast/" target="_blank" rel="noopener">Instagram</a></div></footer>
+</main><footer><div class="keypad-tab" aria-label="Restricted access keypad"><span class="keypad-tab-label">SPECIAL ACCESS · CLASSIFIED ARCHIVE</span><form class="cabinet-keypad" id="secretAccessForm"><label class="keypad-screen" for="secretCodeInput">ACCESS CODE</label><input class="keypad-entry" id="secretCodeInput" name="access_code" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" placeholder="••••" aria-label="Enter four digit access code" required><button class="keypad-unlock" type="submit">UNLOCK</button></form></div><div>© <span id="year"></span> Spoooky Scary Podcast. The case remains open.</div><div class="footer-links"><a href="#about">About</a><a href="#stories">Submit a story</a><a href="https://open.spotify.com/show/0342h0NJKigxhoZ4Esdge4" target="_blank" rel="noopener">Spotify</a><a href="https://podcasts.apple.com/us/podcast/spoooky-scary-podcast/id6827607584" target="_blank" rel="noopener">Apple Podcasts</a><a href="https://youtube.com/@spoookyscarypodcast" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/spoookyscarypodcast/" target="_blank" rel="noopener">Instagram</a></div></footer>
 <dialog class="case-dialog" id="caseDialog" aria-label="Case file details"><button class="dialog-close" type="button" id="closeCaseDialog">CLOSE FILE ✕</button><div class="dialog-paper" id="dialogPaper"></div></dialog>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
@@ -337,84 +400,49 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
   // WEEKLY/MONTHLY SECRET DROP SETTINGS — update these three values for each new drop.
   // Upload the image to the same GitHub folder as index.html and use its exact filename below.
-  const SECRET_ACCESS_CODE = '1998'; // Change to your current four-digit code.
+  const SECRET_ACCESS_CODE = '1998'; // Change this four-digit code for each new drop.
   const SECRET_DOCUMENT_TITLE = 'SUPER CLASSIFIED DOCUMENT';
-  const SECRET_DOCUMENT_IMAGE = 'super-classified.PNG'; // Replace with this week's/month's image filename.
-  const keypad = document.getElementById('secretKeypad');
-  keypad?.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const entered = window.prompt('RESTRICTED ACCESS\nEnter the current 4-digit access code:');
-    if (entered === null) return;
-    if (!/^\d{4}$/.test(entered.trim()) || entered.trim() !== SECRET_ACCESS_CODE) {
+  const SECRET_DOCUMENT_IMAGE = 'super-classified.PNG'; // Upload this exact filename beside index.html.
+  const accessForm = document.getElementById('secretAccessForm');
+  const accessInput = document.getElementById('secretCodeInput');
+  accessForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const entered = accessInput.value.trim();
+    if (!/^\d{4}$/.test(entered) || entered !== SECRET_ACCESS_CODE) {
       window.alert('ACCESS DENIED. Incorrect authorization code.');
+      accessInput.value = '';
+      accessInput.focus();
       return;
     }
+    accessInput.value = '';
     dialogPaper.innerHTML = '<div class="secret-doc-card"><span class="secret-stamp">TOP SECRET</span><h3>' + SECRET_DOCUMENT_TITLE + '</h3><p>ACCESS CODE ACCEPTED · AUTHORIZED PERSONNEL ONLY</p><p>A sealed document has been released from the archive.</p><button type="button" class="btn primary" id="openSecretDocument">OPEN SUPER CLASSIFIED DOCUMENT ↗</button></div>';
     if(typeof caseDialog.showModal==='function') caseDialog.showModal();
     else caseDialog.setAttribute('open','');
     document.getElementById('openSecretDocument').addEventListener('click', () => {
-      dialogPaper.innerHTML = '<div class="secret-doc-card"><span class="secret-stamp">EYES ONLY</span><h3>' + SECRET_DOCUMENT_TITLE + '</h3><img class="secret-image" src="' + SECRET_DOCUMENT_IMAGE + '" alt="Super classified weekly or monthly document" onerror="this.hidden=true;this.insertAdjacentHTML('afterend', '<p class=\"secret-image-help\">IMAGE NOT FOUND — upload the image beside index.html and check SECRET_DOCUMENT_IMAGE in the script.</p>')"><p class="secret-image-help">END OF TRANSMISSION · HANDLE WITH EXTREME DISCRETION</p></div>';
+      dialogPaper.innerHTML = '<div class="secret-doc-card"><span class="secret-stamp">EYES ONLY</span><h3>' + SECRET_DOCUMENT_TITLE + '</h3><img class="secret-image" src="' + SECRET_DOCUMENT_IMAGE + '" alt="Super classified weekly or monthly document"><p class="secret-image-help">END OF TRANSMISSION · HANDLE WITH EXTREME DISCRETION</p></div>';
+      const secretImage = dialogPaper.querySelector('.secret-image');
+      secretImage?.addEventListener('error', () => {
+        secretImage.hidden = true;
+        const help = document.createElement('p');
+        help.className = 'secret-image-help';
+        help.textContent = 'IMAGE NOT FOUND — upload the image beside index.html and check SECRET_DOCUMENT_IMAGE in the script.';
+        secretImage.insertAdjacentElement('afterend', help);
+      }, { once: true });
     });
   });
 })();
 </script>
 
-<style>
-/* Horizontal classified-access strip anchored at the very bottom of the site. */
-footer{flex-direction:column;align-items:stretch;gap:18px}
-.keypad-tab{order:-1;position:relative;z-index:4;width:100%;margin:0;padding:12px 18px;border:1px solid #77736b;border-radius:4px;background:linear-gradient(90deg,#454640,#242621);box-shadow:0 5px 10px #0009,inset 0 1px 2px #ffffff25;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px}
-.keypad-tab-label{font:bold 9px monospace;letter-spacing:.18em;color:#c7bda7;text-align:left}
-.cabinet-keypad{position:relative;width:170px;min-height:54px;padding:6px 9px;border:2px solid #aaa697;border-radius:4px;background:linear-gradient(145deg,#55564f,#22241f);color:#e5dfce;box-shadow:inset 0 1px 3px #fff5,0 3px 7px #000b;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;align-items:center;gap:4px 8px;cursor:pointer;font-family:monospace}
-.cabinet-keypad:hover{filter:brightness(1.25);transform:translateY(-1px)}
-.keypad-screen{grid-column:1;grid-row:1;width:100%;padding:4px 2px;background:#172019;border:1px solid #77796c;color:#b9d29a;font-size:9px;letter-spacing:.12em;text-align:center;box-shadow:inset 0 1px 4px #000}
-.keypad-grid{grid-column:2;grid-row:1 / span 2;width:62px;display:grid;grid-template-columns:repeat(2,1fr);gap:3px;justify-self:end}
-.keypad-grid i{height:16px;display:flex;align-items:center;justify-content:center;border:1px solid #aaa697;border-radius:2px;background:linear-gradient(#77766e,#353630);box-shadow:inset 0 1px #fff4,0 1px 2px #0009;color:#eee7d8;font:bold 9px monospace;font-style:normal}
-.secret-doc-card{border:2px solid #8f2424;padding:18px;background:linear-gradient(135deg,#dfc99d,#b99c6d);box-shadow:inset 0 0 0 5px #d1b887;color:#342619;text-align:center}
-.secret-doc-card .secret-stamp{display:inline-block;border:3px double #982326;color:#982326;padding:5px 10px;font:bold 12px monospace;letter-spacing:.18em;transform:rotate(-4deg)}
-.secret-doc-card h3{font: bold 1.8rem Georgia,serif;margin:18px 0 8px}
-.secret-doc-card p{color:#4c3926}
-.secret-image{display:block;width:100%;max-height:65vh;object-fit:contain;margin:16px auto 0;border:5px solid #5b4931;box-shadow:0 6px 18px #0008}
-.secret-image-help{font:11px monospace;color:#59452f;margin-top:10px}
-</style>
+
+
+
+
+
+
+
+
+
+
+
 
 </body></html>
-
-<style>
-/* Give the cabinet's main CLASSIFIED DOCUMENTS lettering more breathing room */
-.cabinet-label{margin-top:clamp(18px,3vw,30px);}
-@media(max-width:600px){.cabinet-label{margin-top:22px;}}
-</style>
-
-<style>
-/* Rebuild the security control as a genuinely horizontal keypad: four keys in one row. */
-footer .keypad-tab{width:100%;max-width:100%;min-height:82px;margin:0;padding:12px 18px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:18px;box-sizing:border-box}
-footer .keypad-tab-label{flex:1;font:bold 10px monospace;letter-spacing:.18em;line-height:1.5;text-align:left}
-footer .cabinet-keypad{width:min(390px,58%);min-height:54px;height:auto;padding:7px 10px;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:8px;box-sizing:border-box}
-footer .keypad-screen{width:76px;flex:0 0 76px;padding:7px 4px;box-sizing:border-box}
-footer .keypad-grid{width:auto;flex:1;display:grid;grid-template-columns:repeat(4,minmax(28px,1fr));grid-template-rows:1fr;gap:6px;justify-self:auto}
-footer .keypad-grid i{height:30px;min-width:0;font-size:11px}
-@media(max-width:600px){
- footer .keypad-tab{min-height:70px;padding:9px 10px;gap:8px}
- footer .keypad-tab-label{font-size:7px;letter-spacing:.1em}
- footer .cabinet-keypad{width:62%;min-height:48px;padding:5px;gap:4px}
- footer .keypad-screen{width:43px;flex-basis:43px;font-size:7px;padding:6px 2px}
- footer .keypad-grid{gap:3px}
- footer .keypad-grid i{height:24px;font-size:9px}
-}
-</style>
-
-<style>
-/* Final alignment cleanup for the horizontal security keypad. */
-footer .keypad-tab{box-sizing:border-box;min-width:0;overflow:hidden;align-items:center}
-footer .keypad-tab-label{display:block;min-width:0;margin:0;padding:0;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
-footer .cabinet-keypad{box-sizing:border-box;min-width:0;min-height:54px;align-items:center;justify-content:center}
-footer .keypad-screen{display:flex;align-items:center;justify-content:center;min-height:30px;line-height:1.2;white-space:nowrap}
-@media(max-width:600px){
-  footer .keypad-tab{width:100%;margin:0;padding:9px 10px;gap:8px}
-  footer .keypad-tab-label{flex:1 1 auto;font-size:7px;letter-spacing:.08em;line-height:1.35}
-  footer .cabinet-keypad{flex:0 1 62%;width:62%;height:auto;min-height:46px;margin:0;padding:5px;gap:4px}
-  footer .keypad-screen{width:43px;flex:0 0 43px;min-height:26px;padding:5px 2px;font-size:7px}
-  footer .keypad-grid{flex:1 1 auto;min-width:0;gap:3px}
-  footer .keypad-grid i{height:23px;font-size:9px}
-}
-</style>
