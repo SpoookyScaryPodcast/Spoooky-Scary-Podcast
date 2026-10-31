@@ -291,11 +291,22 @@ footer .keypad-unlock:hover{filter:brightness(1.2)}
   </div>
   <div class="drawer-panel" id="archiveDrawer" hidden>
     <div class="drawer-interior">
-      <div class="archive-topline"><div class="archive-label">▤ Classified Documents · Case Archive</div><div class="archive-count" id="archiveCount">2 records · newest first</div></div>
+      <div class="archive-topline"><div class="archive-label">▤ Classified Documents · Case Archive</div><div class="archive-count" id="archiveCount">3 records · newest first</div></div>
       <div class="episode-grid" id="caseArchive">
 <details class="case-folder" data-case="1" data-date="2026-10-30"><summary><span class="folder-kicker">CLASSIFIED CASE FILE · UFO / ABDUCTION</span><span class="folder-number">001</span><span class="folder-title">The Betty and Barney Hill Case</span></summary><div class="folder-content"><span class="tag">CASE FILE 001 · 1961</span><p>A reported 1961 encounter, missing time, and one of the most widely discussed alien-abduction cases in American history. Open the file to explore the couple’s account, the investigation, and competing explanations.</p><p><strong>In this episode:</strong> the reported encounter, the missing-time account, and the case’s place in UFO history.</p><div class="actions"><a class="btn primary" href="https://open.spotify.com/episode/2YQyB2n4yrMw7RQqP1e9mh" target="_blank" rel="noopener">Listen on Spotify ↗</a><a class="btn ghost" href="https://podcasts.apple.com/us/podcast/spoooky-scary-podcast/id6827607584?i=1000798520037" target="_blank" rel="noopener">Listen on Apple Podcasts ↗</a><a class="btn ghost" href="https://youtu.be/n6Jk_ijg2js?is=zVViXZDrS_6IDpRw" target="_blank" rel="noopener">Watch on YouTube ↗</a></div></div></details>
-<div class="case-folder case-locked" data-case="2" data-date="2026-10-30" aria-label="Case File 002, sealed until episode release">
-  <div class="folder-front"><span class="folder-kicker">CLASSIFIED CASE FILE · CRYPTID / UNKNOWN VISITOR</span><span class="folder-number">002</span><span class="folder-title">The Van Meter Visitor</span><span class="folder-seal">🔒 SEALED UNTIL EPISODE RELEASE</span><span class="folder-note">FILE ACCESS RESTRICTED · CHECK BACK SATURDAY</span></div>
+<details class="case-folder" data-case="2" data-date="2026-10-31">
+  <summary><span class="folder-kicker">CLASSIFIED CASE FILE · CRYPTID / IOWA</span><span class="folder-number">002</span><span class="folder-title">The Van Meter Visitor</span></summary>
+  <div class="folder-content">
+    <span class="tag">CASE FILE 002 · THE VAN METER VISITOR</span>
+    <p In 1903, residents of Van Meter, Iowa, reported a bizarre winged creature with a horn-like appendage and a glowing light. We investigate the strange sightings, the witnesses who claimed to encounter it, and the mystery of the Van Meter Visitor.</p>
+    <p><strong>In this episode:</strong> the reported encounters, the legend’s origins, and what might explain the strange figure.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://open.spotify.com/episode/366aD8uLeD0G2piWEx7Sde?si=IjHw6SQ0SxS3PHPQhqApkw&amp;utm_source=copy-link" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+    </div>
+  </div>
+</details>
+<div class="case-folder case-locked" data-case="3" data-date="2026-11-04" aria-label="Case File 003, sealed until November 4, 2026">
+  <div class="folder-front"><span class="folder-kicker">CLASSIFIED CASE FILE · MOUNTAINS / UNEXPLAINED</span><span class="folder-number">003</span><span class="folder-title">The Dyatlov Pass Incident</span><span class="folder-seal">🔒 SEALED UNTIL NOVEMBER 4</span><span class="folder-note">SPECIAL GUEST: MR. ALTERI · EPISODE 003</span></div>
 </div>
       </div>
       <div class="archive-footer"><span>Displaying newest 20 case files</span><span class="archive-page" id="archivePage">ARCHIVE · PAGE 01</span></div>
@@ -400,9 +411,9 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
   // WEEKLY/MONTHLY SECRET DROP SETTINGS — update these three values for each new drop.
   // Upload the image to the same GitHub folder as index.html and use its exact filename below.
-  const SECRET_ACCESS_CODE = '2012'; // Change this four-digit code for each new drop.
+  const SECRET_ACCESS_CODE = '1998'; // Change this four-digit code for each new drop.
   const SECRET_DOCUMENT_TITLE = 'SUPER CLASSIFIED DOCUMENT';
-  const SECRET_DOCUMENT_IMAGE = 'super-classified.webp'; // Upload this exact filename beside index.html.
+  const SECRET_DOCUMENT_IMAGE = 'super-classified.PNG'; // Upload this exact filename beside index.html.
   const accessForm = document.getElementById('secretAccessForm');
   const accessInput = document.getElementById('secretCodeInput');
   accessForm?.addEventListener('submit', (event) => {
