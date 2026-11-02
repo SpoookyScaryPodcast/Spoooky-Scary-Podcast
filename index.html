@@ -220,25 +220,25 @@ header nav{
 }
 .header-gif-link:before{content:none !important}
 .header-gif-link img{
-  width:48px;height:48px;display:block;object-fit:cover;border-radius:50%;
-  border:1px solid rgba(194,29,32,.9);
-  box-shadow:0 0 0 4px #171011,0 0 18px rgba(194,29,32,.24);
+  width:62px;height:62px;display:block;object-fit:cover;border-radius:50%;
+  border:0;
+  box-shadow:0 0 0 3px #171717;
   transition:transform .2s ease,box-shadow .2s ease;
 }
 .header-gif-link:hover img{transform:scale(1.08);box-shadow:0 0 0 4px #241315,0 0 22px rgba(194,29,32,.48)}
 @media(max-width:850px){
   header{grid-template-columns:1fr auto;row-gap:18px;min-height:102px;height:auto;padding-top:10px !important;padding-bottom:11px !important}
   header .brand{grid-column:1;grid-row:1}
-  header .header-gif-link{grid-column:2;grid-row:1;width:60px;height:48px;padding-left:18px}
-  header .header-gif-link img{width:40px;height:40px}
+  header .header-gif-link{grid-column:2;grid-row:1;width:76px;height:68px;padding-left:18px}
+  header .header-gif-link img{width:58px;height:58px}
   header nav{grid-column:1 / -1;grid-row:2;justify-self:stretch;justify-content:space-between;gap:12px !important}
 }
 @media(max-width:520px){
   header{display:flex !important;flex-direction:column;align-items:stretch;gap:8px;padding:10px 5vw 11px !important}
-  header .brand{max-width:calc(100% - 62px);padding-right:0}
-  header .header-gif-link{position:absolute;top:8px;right:5vw;width:48px;height:46px;margin:0 !important;padding:0;border:0;justify-content:center}
-  header .header-gif-link img{width:42px;height:42px}
-  header nav{width:100%;margin-top:18px !important;justify-content:space-between;gap:7px !important}
+  header .brand{max-width:calc(100% - 78px);padding-right:0}
+  header .header-gif-link{position:absolute;top:6px;right:5vw;width:66px;height:64px;margin:0 !important;padding:0;border:0;justify-content:center}
+  header .header-gif-link img{width:58px;height:58px}
+  header nav{width:100%;margin-top:24px !important;justify-content:space-between;gap:7px !important}
   header nav a{font-size:.58rem;letter-spacing:.035em}
 }
 
